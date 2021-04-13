@@ -16,11 +16,11 @@ const seattle = {
 function generateSaleArray(location){
   location.grandTotal = 0;
   location.hourlySaleArray = [];
-  for (let i = 0; i < cookieHours; i++){
+  for (let i = 0; i < cookieHours.length; i++){
     let customers = location.randoCustnum();
     let cookiesSold = Math.floor(customers * location.avgCookpCust);
     location.grandTotal += cookiesSold;
-    location.hourlySalesArray.push(cookiesSold);
+    location.hourlySaleArray.push(cookiesSold);
   }
 }
 
