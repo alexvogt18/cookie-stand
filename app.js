@@ -32,7 +32,7 @@ function renderStoreInfo(location) {
   const h2Elem = document.createElement('h2');
   h2Elem.textContent = location.cityName;
   locationDivElem.appendChild(h2Elem);
-//   h2 is rendered, now ul and li need to render
+  //   h2 is rendered, now ul and li need to render
   const ulElem = document.createElement('ul');
   locationDivElem.appendChild(ulElem);
   for (let i = 0; i < cookieHours.length; i++) {
@@ -40,13 +40,11 @@ function renderStoreInfo(location) {
     liElem.textContent = '${cookieHours[i]}: ${location.hourlySaleArray[i]} cookies';
     ulElem.appendChild(liElem);
   }
+  const totalLiElem = document.createElement('li');
+
+  totalLiElem.textContent = 'Total: ' + location.grandTotal + ' cookies';
+
+  ulElem.appendChild(totalLiElem);
 }
 
-const totalLiElem = document.createElement('li');
-
-totalLiElem.textContent = 'Total: ' + location.grandTotal + ' cookies';
-
-ulElem.appendChild(totalLiElem);
-}
-
-renderLocationInfo(seattle);
+renderStoreInfo(seattle);
