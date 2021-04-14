@@ -11,7 +11,7 @@ const seattle = {
     let randoNum = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1) + this.minCustomer);
     return randoNum;
   }
-}
+};
 
 function generateSalesArray(location) {
   location.grandTotal = 0;
