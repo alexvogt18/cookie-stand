@@ -148,6 +148,22 @@ StorePlace.prototype.render = function() {
   trElem2.appendChild(tdElem1);
 }
 
+function renderFooter () {
+  const trElem = document.createElement('tr');
+  tableElem.appendChild(trElem);
+  const thElem = document.createElement('th');
+  thElem.textContent = 'hourly total'
+  trElem.appendChild(thElem);
+  let dailytotal= 0
+  for (letindex = 0; index < cookieHours.length; index++) {
+    let hourlytotal= 0;
+    for (let index2 = 0; index2 < cookieHours.length; index2 ++) {
+      let currentstore = salmonCookieStoreArray [index2];
+      hourlytotal += 
+    }
+  }
+}
+
 seattle.render();
 tokyo.render();
 dubai.render();
