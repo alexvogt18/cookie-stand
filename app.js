@@ -61,24 +61,24 @@ function StorePlace(cityName, minCustomer, maxCustomer, avgCookpCust) {
   this.avgCookpCust = avgCookpCust;
 }
 
-function randoCustnum(this.minCustomer, this.maxCustomer) {
-  return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer + 1) + this.minCustomer);
+function randoCustnum(minCustomer, maxCustomer) {
+  return Math.floor(Math.random() * (maxCustomer - minCustomer + 1) + minCustomer);
 }
 
 StorePlace.prototype.getAvgcust = function() {
-  this.avgCustnum = randoCustnum(2,65);
-}
+  return randoCustnum(this.minCustomer, this.maxCustomer);
+};
 
 StorePlace.prototype.generateSalesArray = function() {
-  location.grandTotal = 0;
-  location.hourlySalesArray = [];
-  for (let i = -1; i < cookieHours.length; i++){
-    let customers = location.randoCustnum();
+  this.grandTotal = 0;
+  this.hourlySalesArray = [];
+  for (let i = 0; i < cookieHours.length; i++){
+    let customers = this.getAvgcust();
     let cookiesSold = Math.floor(customers * this.avgCookpCust);
-    location.grandTotal += cookiesSold;
-    location.hourlySalesArray.push(cookiesSold);
+    this.grandTotal += cookiesSold;
+    this.hourlySalesArray.push(cookiesSold);
   }
-}
+};
 
 const seattle = new StorePlace('Seattle', 23, 65, 6.3);
 
@@ -90,43 +90,47 @@ const paris = new StorePlace('Paris', 20, 38, 2.3);
 
 const lima = new StorePlace('Lima', 2, 16, 4.6);
 
-seattle.getAvgcust();
-tokyo.getAvgcust();
-dubai.getAvgcus();
-paris.getAvgcust();
-lima.getAvgcus();
+seattle.generateSalesArray();
+tokyo.generateSalesArray();
+dubai.generateSalesArray();
+paris.generateSalesArray();
+lima.generateSalesArray();
 
 const storeDivElem = document.getElementById('storeNames');
 
+// h2 element create
+const h2Elem = document.createElement('h2');
+h2Elem.textContent = 'Cookies Sold per Open Hour';
+storeDivElem.appendChild(h2Elem);
+// p element create
+const pElem = document.createElement('p');
+storeDivElem.appendChild(pElem);
+
+// const tableElem = document.getElementById('sales table');
+//
+// Write a global function that creates a header for the table
 StorePlace.prototype.render = function() {
-  // h2 element create
-  const h2Elem = document.createElement('h2');
-  h2Elem.textContent = 'Cookies Sold per Open Hour';
-  locationDivElem.appendChild(h2Elem);
-  // p element create
-  const pElem = document.createElement('p');
-  locationDivElem.appendChild(pElem);
-  // table element creat
   const tableElem = document.createElement('table');
   storeDivElem.appendChild(tableElem);
   //First Table Row
-  const trElem = document.createElement('tr')
+  const trElem = document.createElement('tr');
   tableElem.appendChild(trElem);
   //First Table Heading
-  constthElem1 = document.createElement('th');
+  const thElem1 = document.createElement('th');
   thElem1.textContent = 'STORE NAME';
   trElem.appendChild(thElem1);
   //Second Table Heading
   const thElem2 = document.createElement('th');
-  thElem2.textContent = 'MIN. CUSTOMER'
+  thElem2.textContent = 'MIN. CUSTOMER';
   trElem.appendChild(thElem2);
   //Third Table Heading
   const thElem3 = document.createElement('th');
-  thElem3.textContent = 'MAX. CUSTOMER'
+  thElem3.textContent = 'MAX. CUSTOMER';
   trElem.appendChild(thElem3);
   //Fourth Table Heading
   const thElem4 = document.createElement('th');
-  thElem4.textContent = 'AVG. CUSTOMER'
+  thElem4.textContent = 'AVG. CUSTOMER';
+  trElem.appendChild(thElem4);
   //Start Next Row to insert Data into Table
   const trElem2 = document.createElement('tr');
   tableElem.appendChild(trElem2);
@@ -135,35 +139,35 @@ StorePlace.prototype.render = function() {
   tdElem1.textContent = this.name;
   trElem2.appendChild(tdElem1);
   // Second Data Cell
-  const tdElem12 = document.createElement('td');
+  const tdElem2 = document.createElement('td');
   tdElem2.textContent = this.minCustomer;
   trElem2.appendChild(tdElem2);
   // Third Data Cell
   const tdElem3 = document.createElement('td');
   tdElem3.textContent = this.maxCustomer;
-  trElem2.appendChild(tdElem1);
+  trElem2.appendChild(tdElem3);
   // Fourth Data Cell
-  const tdElem1 = document.createElement('td');
-  tdElem1.textContent = this.avgCookpCust;
-  trElem2.appendChild(tdElem1);
-}
+  const tdElem4 = document.createElement('td');
+  tdElem4.textContent = this.avgCookpCust;
+  trElem2.appendChild(tdElem4);
+};
 
-function renderFooter () {
-  const trElem = document.createElement('tr');
-  tableElem.appendChild(trElem);
-  const thElem = document.createElement('th');
-  thElem.textContent = 'hourly total'
-  trElem.appendChild(thElem);
-  let dailytotal= 0
-  for (letindex = 0; index < cookieHours.length; index++) {
-    let hourlytotal= 0;
-    for (let index2 = 0; index2 < cookieHours.length; index2 ++) {
-      let currentstore = salmonCookieStoreArray [index2];
-      hourlytotal += 
-    }
-  }
-}
+// function renderFooter () {
+//   const trElem = document.createElement('tr');
+//   tableElem.appendChild(trElem);
+//   const thElem = document.createElement('th');
+//   thElem.textContent = 'hourly total';
+//   trElem.appendChild(thElem);
+//   let dailytotal= 0;
+//   for (letindex = 0; index < cookieHours.length; index++) {
+//     let hourlytotal= 0;
+//     for (let index2 = 0; index2 < cookieHours.length; index2 ++) {
+//       let currentstore = salmonCookieStoreArray [index2];
+//     }
+//   }
+// }
 
+// renderFooter();
 seattle.render();
 tokyo.render();
 dubai.render();
