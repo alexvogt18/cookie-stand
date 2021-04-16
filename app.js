@@ -117,20 +117,64 @@ StorePlace.prototype.render = function() {
   tableElem.appendChild(trElem);
   //First Table Heading
   const thElem1 = document.createElement('th');
-  thElem1.textContent = 'STORE NAME';
+  thElem1.textContent = 'Name';
   trElem.appendChild(thElem1);
   //Second Table Heading
   const thElem2 = document.createElement('th');
-  thElem2.textContent = 'MIN. CUSTOMER';
+  thElem2.textContent = '6:00am';
   trElem.appendChild(thElem2);
   //Third Table Heading
   const thElem3 = document.createElement('th');
-  thElem3.textContent = 'MAX. CUSTOMER';
+  thElem3.textContent = '7:00am';
   trElem.appendChild(thElem3);
   //Fourth Table Heading
   const thElem4 = document.createElement('th');
-  thElem4.textContent = 'AVG. CUSTOMER';
+  thElem4.textContent = '8:00am';
   trElem.appendChild(thElem4);
+  //Fifth Table Heading
+  const thElem5 = document.createElement('th');
+  thElem5.textContent = '9:00am';
+  trElem.appendChild(thElem5);
+  //Fourth Table Heading
+  const thElem6 = document.createElement('th');
+  thElem6.textContent = '11:00am';
+  trElem.appendChild(thElem6);
+  //Fourth Table Heading
+  const thElem7 = document.createElement('th');
+  thElem7.textContent = '12:00pm';
+  trElem.appendChild(thElem7);
+  //Fourth Table Heading
+  const thElem8 = document.createElement('th');
+  thElem8.textContent = '1:00pm';
+  trElem.appendChild(thElem8);
+  //Fourth Table Heading
+  const thElem9 = document.createElement('th');
+  thElem9.textContent = '2:00pm';
+  trElem.appendChild(thElem9);
+  //Fourth Table Heading
+  const thElem10 = document.createElement('th');
+  thElem10.textContent = '3:00pm';
+  trElem.appendChild(thElem10);
+  //Fourth Table Heading
+  const thElem11 = document.createElement('th');
+  thElem11.textContent = '4:00pm';
+  trElem.appendChild(thElem11);
+  //Fourth Table Heading
+  const thElem12 = document.createElement('th');
+  thElem12.textContent = '5:00pm';
+  trElem.appendChild(thElem12);
+  //Fourth Table Heading
+  const thElem13 = document.createElement('th');
+  thElem13.textContent = '6:00pm';
+  trElem.appendChild(thElem13);
+  //Fourth Table Heading
+  const thElem14 = document.createElement('th');
+  thElem14.textContent = '7:00pm';
+  trElem.appendChild(thElem14);
+  //Fourth Table Heading
+  const thElem15 = document.createElement('th');
+  thElem15.textContent = 'Daily Location Total';
+  trElem.appendChild(thElem15);
   //Start Next Row to insert Data into Table
   const trElem2 = document.createElement('tr');
   tableElem.appendChild(trElem2);
@@ -152,12 +196,29 @@ StorePlace.prototype.render = function() {
   trElem2.appendChild(tdElem4);
 };
 
+//function renderHeader () {
+//   const trElem = document.createElement('tr');
+//   tableElem.appendChild(trElem);
+//   const thElem = document.createElement('th');
+//   thElem.textContent = 'hourly total';
+//   trElem.appendChild(thElem);\
+//   let dailytotal= 0;
+//   for (letindex = 0; index < cookieHours.length; index++) {
+//     let hourlytotal= 0;
+//     for (let index2 = 0; index2 < cookieHours.length; index2 ++) {
+//       let currentstore = salmonCookieStoreArray [index2];
+//     }
+//   }
+// }
+
+// renderHeader ();
+
 // function renderFooter () {
 //   const trElem = document.createElement('tr');
 //   tableElem.appendChild(trElem);
 //   const thElem = document.createElement('th');
 //   thElem.textContent = 'hourly total';
-//   trElem.appendChild(thElem);
+//   trElem.appendChild(thElem);\
 //   let dailytotal= 0;
 //   for (letindex = 0; index < cookieHours.length; index++) {
 //     let hourlytotal= 0;
