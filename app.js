@@ -104,43 +104,49 @@ lima.generateSalesArray();
 
 const storeDivElem = document.getElementById('storeNames');
 
-function renderHeader () {
+// h2 element create
+const h2Elem = document.createElement('h2');
+h2Elem.textContent = 'Cookies Sold per Open Hour';
+storeDivElem.appendChild(h2Elem);
+
+function renderHeader(){
   const locationArticle = document.createElement('article');
   storeDivElem.appendChild(locationArticle);
   const tableElement = document.createElement('table');
   tableElement.setAttribute = ('id', 'salestable');
   locationArticle.appendChild(tableElement);
-  const thElement= document.createElement('th');
-  tableElement.appendChild(thElement);
-  for (let i = 0; i < cookieHours.length; i++) {
+  const trElement = document.createElement('tr_1');
+  tableElement.appendChild(trElement);
+  for (let i = 0; i <= cookieHours.length; i++) {
     const thElement = document.createElement('th');
     thElement.textContent = cookieHours[i];
-    tableElement.appendChild(thElement);
+    trElement.appendChild(thElement);
   }
   const th1Element = document.createElement('th');
   th1Element.textContent= 'Daily Total';
-  tableElement.appendChild(th1Element);
+  trElement.appendChild(th1Element);
 }
-
-// h2 element create
-const h2Elem = document.createElement('h2');
-h2Elem.textContent = 'Cookies Sold per Open Hour';
-storeDivElem.appendChild(h2Elem);
 
 StorePlace.prototype.render = function() {
-  
-}
+  const trElement = document.createElement('tr_2');
+  trElement.textcontent = this.name;
+  storeDivElem.appendChild(trElement);
+//   tdElement.textContent = this.name;
+//   trElement.appendChild(tdElement);
+//   for (let i=0; i < cookieHours.length; i++){
+//     const tdElement = document.createElement('td');
+//     tdElement.textContent = cookieHours[i];
+//     tableElement.appendChild(tdElement);
+// }
+};
 
-// h2 element create
-const h2Elem = document.createElement('h2');
-h2Elem.textContent = 'Cookies Sold per Open Hour';
-storeDivElem.appendChild(h2Elem);
-// p element create
-const pElem = document.createElement('p');
-storeDivElem.appendChild(pElem);
 
 // const tableElem = document.getElementById('sales table');
 // let dailytotal= 0;
+
+// const tdElementTotal = document.createElement('td');
+//   tdElementTotal.textContent = this.grandTotal;
+//   trElement.appendChild(tdElementTotal);
 
 // function renderFooter () {
 //   const trElem = document.createElement('tr');
@@ -156,11 +162,10 @@ storeDivElem.appendChild(pElem);
 //     }
 //   }
 // }
-
-// renderFooter();
+renderHeader();
 seattle.render();
 tokyo.render();
 dubai.render();
 paris.render();
 lima.render();
-renderHeader ();
+// renderFooter();
