@@ -50,6 +50,9 @@
 
 // renderStoreInfo(seattle);
 
+//https://googlechrome.github.io/devtools-samples/debug-js/get-started
+
+
 // *** PART 2 CONSTRUCTOR FUNCTIONS ***
 
 const cookieHours = ['6am', '7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
@@ -80,6 +83,7 @@ StorePlace.prototype.generateSalesArray = function() {
   }
 };
 
+//Everything above is good, we have the information being generated.
 const seattle = new StorePlace('Seattle', 23, 65, 6.3);
 
 const tokyo = new StorePlace('Tokyo', 3, 24, 1.2);
@@ -96,7 +100,36 @@ dubai.generateSalesArray();
 paris.generateSalesArray();
 lima.generateSalesArray();
 
+//Deleted earlier rendering of table, rendering header- then table data - the render footer
+
 const storeDivElem = document.getElementById('storeNames');
+
+function renderHeader () {
+  const locationArticle = document.createElement('article');
+  storeDivElem.appendChild(locationArticle);
+  const tableElement = document.createElement('table');
+  tableElement.setAttribute = ('id', 'salestable');
+  locationArticle.appendChild(tableElement);
+  const thElement= document.createElement('th');
+  tableElement.appendChild(thElement);
+  for (let i = 0; i < cookieHours.length; i++) {
+    const thElement = document.createElement('th');
+    thElement.textContent = cookieHours[i];
+    tableElement.appendChild(thElement);
+  }
+  const th1Element = document.createElement('th');
+  th1Element.textContent= 'Daily Total';
+  tableElement.appendChild(th1Element);
+}
+
+// h2 element create
+const h2Elem = document.createElement('h2');
+h2Elem.textContent = 'Cookies Sold per Open Hour';
+storeDivElem.appendChild(h2Elem);
+
+StorePlace.prototype.render = function() {
+  
+}
 
 // h2 element create
 const h2Elem = document.createElement('h2');
@@ -107,111 +140,7 @@ const pElem = document.createElement('p');
 storeDivElem.appendChild(pElem);
 
 // const tableElem = document.getElementById('sales table');
-//
-// Write a global function that creates a header for the table
-StorePlace.prototype.render = function() {
-  const tableElem = document.createElement('table');
-  storeDivElem.appendChild(tableElem);
-  //First Table Row
-  const trElem = document.createElement('tr');
-  tableElem.appendChild(trElem);
-  //First Table Heading
-  const thElem1 = document.createElement('th');
-  thElem1.textContent = 'Name';
-  trElem.appendChild(thElem1);
-  //Second Table Heading
-  const thElem2 = document.createElement('th');
-  thElem2.textContent = '6:00am';
-  trElem.appendChild(thElem2);
-  //Third Table Heading
-  const thElem3 = document.createElement('th');
-  thElem3.textContent = '7:00am';
-  trElem.appendChild(thElem3);
-  //Fourth Table Heading
-  const thElem4 = document.createElement('th');
-  thElem4.textContent = '8:00am';
-  trElem.appendChild(thElem4);
-  //Fifth Table Heading
-  const thElem5 = document.createElement('th');
-  thElem5.textContent = '9:00am';
-  trElem.appendChild(thElem5);
-  //Fourth Table Heading
-  const thElem6 = document.createElement('th');
-  thElem6.textContent = '11:00am';
-  trElem.appendChild(thElem6);
-  //Fourth Table Heading
-  const thElem7 = document.createElement('th');
-  thElem7.textContent = '12:00pm';
-  trElem.appendChild(thElem7);
-  //Fourth Table Heading
-  const thElem8 = document.createElement('th');
-  thElem8.textContent = '1:00pm';
-  trElem.appendChild(thElem8);
-  //Fourth Table Heading
-  const thElem9 = document.createElement('th');
-  thElem9.textContent = '2:00pm';
-  trElem.appendChild(thElem9);
-  //Fourth Table Heading
-  const thElem10 = document.createElement('th');
-  thElem10.textContent = '3:00pm';
-  trElem.appendChild(thElem10);
-  //Fourth Table Heading
-  const thElem11 = document.createElement('th');
-  thElem11.textContent = '4:00pm';
-  trElem.appendChild(thElem11);
-  //Fourth Table Heading
-  const thElem12 = document.createElement('th');
-  thElem12.textContent = '5:00pm';
-  trElem.appendChild(thElem12);
-  //Fourth Table Heading
-  const thElem13 = document.createElement('th');
-  thElem13.textContent = '6:00pm';
-  trElem.appendChild(thElem13);
-  //Fourth Table Heading
-  const thElem14 = document.createElement('th');
-  thElem14.textContent = '7:00pm';
-  trElem.appendChild(thElem14);
-  //Fourth Table Heading
-  const thElem15 = document.createElement('th');
-  thElem15.textContent = 'Daily Location Total';
-  trElem.appendChild(thElem15);
-  //Start Next Row to insert Data into Table
-  const trElem2 = document.createElement('tr');
-  tableElem.appendChild(trElem2);
-  // First Data Cell
-  const tdElem1 = document.createElement('td');
-  tdElem1.textContent = this.name;
-  trElem2.appendChild(tdElem1);
-  // Second Data Cell
-  const tdElem2 = document.createElement('td');
-  tdElem2.textContent = this.minCustomer;
-  trElem2.appendChild(tdElem2);
-  // Third Data Cell
-  const tdElem3 = document.createElement('td');
-  tdElem3.textContent = this.maxCustomer;
-  trElem2.appendChild(tdElem3);
-  // Fourth Data Cell
-  const tdElem4 = document.createElement('td');
-  tdElem4.textContent = this.avgCookpCust;
-  trElem2.appendChild(tdElem4);
-};
-
-//function renderHeader () {
-//   const trElem = document.createElement('tr');
-//   tableElem.appendChild(trElem);
-//   const thElem = document.createElement('th');
-//   thElem.textContent = 'hourly total';
-//   trElem.appendChild(thElem);\
-//   let dailytotal= 0;
-//   for (letindex = 0; index < cookieHours.length; index++) {
-//     let hourlytotal= 0;
-//     for (let index2 = 0; index2 < cookieHours.length; index2 ++) {
-//       let currentstore = salmonCookieStoreArray [index2];
-//     }
-//   }
-// }
-
-// renderHeader ();
+// let dailytotal= 0;
 
 // function renderFooter () {
 //   const trElem = document.createElement('tr');
@@ -234,3 +163,4 @@ tokyo.render();
 dubai.render();
 paris.render();
 lima.render();
+renderHeader ();
