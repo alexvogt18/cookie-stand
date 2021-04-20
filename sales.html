@@ -10,52 +10,23 @@
       <h1>Sales per Store Location!</h1>
     </header>
     <main>
-      <h2> </h2>
-      <div id='storeNames'>
-        <!-- <table id= 'sales table'>
-
-        </table> -->
-        <!-- <article>
-          <h2></h2>
-          <p>
-            <table>
-              <tr>
-                <th>
-                  'Location'
-                </th>
-                <th>
-                  'Min. Cust'
-                </th>
-                <th>
-                  'Max. Cust'
-                </th>
-                <th>
-                  'Avg Cookie per Sale'
-                </th>
-              </tr>
-              <tr>
-                <td>
-                  ${this.name}
-                </td>
-                <td>
-                  ${this.minCustomer}
-                </td>
-                <td>
-                  ${this.maxCustomer}
-                </td>
-                <td>
-                  ${this.avgCookpCust}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  total
-                </td>
-              </tr>
-            </table>
-          </p>  
-        </article> -->
-      </div>
+      <form id="salesInput" >
+        <fieldset>
+          <legend>Store Sales Input</legend>
+          <label class="nameInput">Name:
+          <input type="text" name="name"></label></br></br>
+          <label>Min Customers:
+          <input type="text" name="minCustomers"></label><br><br>
+          <label>Max Customers:
+          <input type="text" name="maxCustomers"></label><br><br>
+          <label>Average Sale:
+          <input type="text" name="avgCookies"></label><br><br>
+          <button id="submit">Submit</button>
+        </fieldset>
+        <section class="mainData">
+          <table id="salmonTable">
+          </table>
+        </section>
     </main>
     <footer>
     </footer>
