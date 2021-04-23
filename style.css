@@ -1,3 +1,38 @@
 body{
-    background-color: bisque;
+    background-color: rgb(110, 110, 235);
+}
+
+h1 {
+    font-size: 4em;
+    background-color: rgb(189, 88, 189);
+    color: #ebdcdc;
+    font-family:'Josefin Sans', sans-serif;
+}
+
+#header {
+    float: right;
+    margin-right: 30%;
+    margin-top: 2%;
+}
+
+#salesinput{
+    display: block;
+    width: 350px;
+}
+
+legend {
+    font-family: 'Fjalla One', sans-serif;
+    color: #ebdcdc;
+    font-size: 3em;
+}
+
+.forminput {
+    font-family: 'Fjalla One', sans-serif;
+    color: #ebdcdc;
+    font-size: 1.2em;
+}
+
+#submit{
+    font-size: 2em;
+    align-content: center;
 }
